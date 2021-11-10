@@ -5,7 +5,6 @@ import requests, json
 import time
 import datetime
 from dateutil.relativedelta import relativedelta
-import openpyxl
 
 # 변수 설정
 pro_name = None
