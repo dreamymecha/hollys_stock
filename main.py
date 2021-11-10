@@ -38,7 +38,7 @@ if code == 1:
     m = int(crit_split[1])
     d = int(crit_split[2])
     exp = (datetime.date(y, m, d) + relativedelta(years=3)).strftime("%Y-%m-%d")
-    hold_time = exp.strftime("%Y-%m-%dT%H:%M+09:00")
+    hold_time = exp
 
 if code == 2:
     method = "냉장"
@@ -676,6 +676,246 @@ if code == 39:
         method = "냉동"
         hold_time = exp
 
+if code == 40:
+    crit = input("제조일?(예: 2021-05-05): ")
+    crit_split = crit.split('-')
+    y = int(crit_split[0])
+    m = int(crit_split[1])
+    d = int(crit_split[2])
+    exp = (datetime.date(y, m, d) + relativedelta(months=3) - relativedelta(days=1)).strftime("%Y-%m-%d")
+    defro = int(input("해동을 시작했는가(예는 1, 아니오는 2)?: "))
+    if defro == 1:
+        pro_name = "뉴 크로크무슈(해동)"
+        method = "냉장"
+        today = datetime.datetime.now()
+        defro_start = today.strftime("%Y-%m-%dT%H:%M+09:00")
+        defro_end = (today + datetime.timedelta(hours=6)).strftime("%Y-%m-%dT%H:%M+09:00")
+        hold_time = (today + datetime.timedelta(hours=48)).strftime("%Y-%m-%dT%H:%M+09:00")
+    if defro == 2:
+        pro_name = "뉴 크로크무슈"
+        method = "냉동"
+        hold_time = exp
+
+if code == 41:
+    crit = input("제조일?(예: 2021-05-05): ")
+    crit_split = crit.split('-')
+    y = int(crit_split[0])
+    m = int(crit_split[1])
+    d = int(crit_split[2])
+    exp = (datetime.date(y, m, d) + relativedelta(months=6) - relativedelta(days=1)).strftime("%Y-%m-%d")
+    defro = int(input("해동을 시작했는가(예는 1, 아니오는 2)?: "))
+    if defro == 1:
+        pro_name = "페스토 햄 모짜렐라 샌드위치(해동)"
+        method = "냉장"
+        today = datetime.datetime.now()
+        defro_start = today.strftime("%Y-%m-%dT%H:%M+09:00")
+        defro_end = (today + datetime.timedelta(hours=9)).strftime("%Y-%m-%dT%H:%M+09:00")
+        hold_time = (today + datetime.timedelta(hours=36)).strftime("%Y-%m-%dT%H:%M+09:00")
+    if defro == 2:
+        pro_name = "페스토 햄 모짜렐라 샌드위치"
+        method = "냉동"
+        hold_time = exp
+
+if code == 42:
+    crit = input("제조일?(예: 2021-05-05): ")
+    crit_split = crit.split('-')
+    y = int(crit_split[0])
+    m = int(crit_split[1])
+    d = int(crit_split[2])
+    exp = (datetime.date(y, m, d) + relativedelta(months=6) - relativedelta(days=1)).strftime("%Y-%m-%d")
+    defro = int(input("해동을 시작했는가(예는 1, 아니오는 2)?: "))
+    if defro == 1:
+        pro_name = "올리브 베이컨 치아바타 샌드위치(해동)"
+        method = "냉장"
+        today = datetime.datetime.now()
+        defro_start = today.strftime("%Y-%m-%dT%H:%M+09:00")
+        defro_end = (today + datetime.timedelta(hours=9)).strftime("%Y-%m-%dT%H:%M+09:00")
+        hold_time = (today + datetime.timedelta(hours=36)).strftime("%Y-%m-%dT%H:%M+09:00")
+    if defro == 2:
+        pro_name = "올리브 베이컨 치아바타"
+        method = "냉동"
+        hold_time = exp
+
+if code == 43:
+    crit = input("제조일?(예: 2021-05-05): ")
+    crit_split = crit.split('-')
+    y = int(crit_split[0])
+    m = int(crit_split[1])
+    d = int(crit_split[2])
+    exp = (datetime.date(y, m, d) + relativedelta(months=6) - relativedelta(days=1)).strftime("%Y-%m-%d")
+    defro = int(input("해동을 시작했는가(예는 1, 아니오는 2)?: "))
+    if defro == 1:
+        pro_name = "미트볼 칠리 치즈 샌드위치(해동)"
+        method = "냉장"
+        today = datetime.datetime.now()
+        defro_start = today.strftime("%Y-%m-%dT%H:%M+09:00")
+        defro_end = (today + datetime.timedelta(hours=9)).strftime("%Y-%m-%dT%H:%M+09:00")
+        hold_time = (today + datetime.timedelta(hours=36)).strftime("%Y-%m-%dT%H:%M+09:00")
+    if defro == 2:
+        pro_name = "미트볼 칠리 치즈 샌드위치"
+        metho = "냉동"
+        hold_time = exp
+
+if code == 44:
+    crit = input("제조일?(예: 2021-05-05): ")
+    crit_split = crit.split('-')
+    y = int(crit_split[0])
+    m = int(crit_split[1])
+    d = int(crit_split[2])
+    exp = (datetime.date(y, m, d) + relativedelta(months=6) - relativedelta(days=1)).strftime("%Y-%m-%d")
+    defro = int(input("해동을 시작했는가(예는 1, 아니오는 2)?: "))
+    if defro == 1:
+        pro_name = "샌드위치 식빵(쇼케이스)"
+        method = "냉장"
+        today = datetime.datetime.now()
+        defro_start = today.strftime("%Y-%m-%dT%H:%M+09:00")
+        defro_end = (today + datetime.timedelta(hours=6)).strftime("%Y-%m-%dT%H:%M+09:00")
+        hold_time = (today + datetime.timedelta(hours=48)).strftime("%Y-%m-%dT%H:%M+09:00")
+    if defro == 2:
+        pro_name = "샌드위치 식빵"
+        metho = "냉동"
+        hold_time = exp
+
+if code == 45:
+    crit = input("제조일?(예: 2021-05-05): ")
+    crit_split = crit.split('-')
+    y = int(crit_split[0])
+    m = int(crit_split[1])
+    d = int(crit_split[2])
+    exp = (datetime.date(y, m, d) + relativedelta(months=6) - relativedelta(days=1)).strftime("%Y-%m-%d")
+    defro = int(input("해동을 시작했는가(예는 1, 아니오는 2)?: "))
+    if defro == 1:
+        pro_name = "오곡 식빵(쇼케이스)"
+        method = "냉장"
+        today = datetime.datetime.now()
+        defro_start = today.strftime("%Y-%m-%dT%H:%M+09:00")
+        defro_end = (today + datetime.timedelta(hours=6)).strftime("%Y-%m-%dT%H:%M+09:00")
+        hold_time = (today + datetime.timedelta(hours=48)).strftime("%Y-%m-%dT%H:%M+09:00")
+    if defro == 2:
+        pro_name = "오곡 식빵"
+        metho = "냉동"
+        hold_time = exp
+
+if code == 46:
+    method = "냉장"
+    crit = input("제조일?(예: 2021-05-05): ")
+    crit_split = crit.split('-')
+    y = int(crit_split[0])
+    m = int(crit_split[1])
+    d = int(crit_split[2])
+    exp = (datetime.date(y, m, d) + relativedelta(months=6)).strftime("%Y-%m-%d")
+    open = int(input("개봉했는가(예는 1, 아니오는 2)?: "))
+    if open == 1:
+        pro_name = "뿌셔먹는 에그샐러드(개봉)"
+        today = datetime.datetime.now()
+        open_date = today.strftime("%Y-%m-%dT%H:%M+09:00")
+        hold_time = (today + datetime.timedelta(days=2)).strftime("%Y-%m-%dT%H:%M+09:00")
+    if open == 2:
+        pro_name = "뿌셔먹는 에그샐러드"
+        hold_time = exp
+
+# 이 부분에 대해서는 논의 요망
+if code == 47:
+    method = "냉장"
+    crit = input("제조일?(예: 2021-05-05): ")
+    crit_split = crit.split('-')
+    y = int(crit_split[0])
+    m = int(crit_split[1])
+    d = int(crit_split[2])
+    exp = (datetime.date(y, m, d) + relativedelta(days=3)).strftime("%Y-%m-%d")
+    open = int(input("개봉했는가(예는 1, 아니오는 2)?: "))
+    if open == 1:
+        pro_name = "뿌셔먹는 에그샐러드(으깬 거, 개봉)"
+        today = datetime.datetime.now()
+        open_date = today.strftime("%Y-%m-%dT%H:%M+09:00")
+        hold_time = (today + datetime.timedelta(days=2)).strftime("%Y-%m-%dT%H:%M+09:00")
+    if open == 2:
+        pro_name = "뿌셔먹는 에그샐러드(으깬 거)"
+        hold_time = exp
+
+if code == 48:
+    method = "냉장"
+    pro_name = "에그마요"
+    today = datetime.datetime.now()
+    hold_time = (today + datetime.timedelta(hours=24)).strftime("%Y-%m-%dT%H:%M+09:00")
+
+if code == 49:
+    method = "냉장"
+    pro_name = "반반마요"
+    today = datetime.datetime.now()
+    hold_time = (today + datetime.timedelta(hours=24)).strftime("%Y-%m-%dT%H:%M+09:00")
+
+if code == 50:
+    pro_name = "사라다 샐러드"
+    method = "냉장"
+    crit = input("제조일?(예: 2021-05-05)?: ")
+    crit_split = crit.split('-')
+    y = int(crit_split[0])
+    m = int(crit_split[1])
+    d = int(crit_split[2])
+    exp = (datetime.date(y, m, d) + relativedelta(days=40)).strftime("%Y-%m-%d")
+    hold_time = exp
+
+if code == 51:
+    crit = input("제조일?(예: 2021-05-05): ")
+    crit_split = crit.split('-')
+    y = int(crit_split[0])
+    m = int(crit_split[1])
+    d = int(crit_split[2])
+    exp = (datetime.date(y, m, d) + relativedelta(months=6) - relativedelta(days=1)).strftime("%Y-%m-%d")
+    defro = int(input("해동을 시작했는가(예는 1, 아니오는 2)?: "))
+    if defro == 1:
+        pro_name = "바삭불고기 & 트리플치즈치킨(해동)"
+        method = "냉장"
+        today = datetime.datetime.now()
+        defro_start = today.strftime("%Y-%m-%dT%H:%M+09:00")
+        defro_end = (today + datetime.timedelta(hours=6)).strftime("%Y-%m-%dT%H:%M+09:00")
+        hold_time = (today + datetime.timedelta(hours=36)).strftime("%Y-%m-%dT%H:%M+09:00")
+    if defro == 2:
+        pro_name = "바삭불고기 & 트리플치즈치킨"
+        metho = "냉동"
+        hold_time = exp
+
+if code == 52:
+    crit = input("제조일?(예: 2021-05-05): ")
+    crit_split = crit.split('-')
+    y = int(crit_split[0])
+    m = int(crit_split[1])
+    d = int(crit_split[2])
+    exp = (datetime.date(y, m, d) + relativedelta(months=6) - relativedelta(days=1)).strftime("%Y-%m-%d")
+    defro = int(input("해동을 시작했는가(예는 1, 아니오는 2)?: "))
+    if defro == 1:
+        pro_name = "매콤닭갈비 & 바베큐포크(해동)"
+        method = "냉장"
+        today = datetime.datetime.now()
+        defro_start = today.strftime("%Y-%m-%dT%H:%M+09:00")
+        defro_end = (today + datetime.timedelta(hours=6)).strftime("%Y-%m-%dT%H:%M+09:00")
+        hold_time = (today + datetime.timedelta(hours=36)).strftime("%Y-%m-%dT%H:%M+09:00")
+    if defro == 2:
+        pro_name = "매콤닭갈비 & 바베큐포크"
+        metho = "냉동"
+        hold_time = exp
+
+if code == 53:
+    crit = input("제조일?(예: 2021-05-05): ")
+    crit_split = crit.split('-')
+    y = int(crit_split[0])
+    m = int(crit_split[1])
+    d = int(crit_split[2])
+    exp = (datetime.date(y, m, d) + relativedelta(months=6) - relativedelta(days=1)).strftime("%Y-%m-%d")
+    defro = int(input("해동을 시작했는가(예는 1, 아니오는 2)?: "))
+    if defro == 1:
+        pro_name = "매콤닭갈비 & 바베큐포크(해동)"
+        method = "냉장"
+        today = datetime.datetime.now()
+        defro_start = today.strftime("%Y-%m-%dT%H:%M+09:00")
+        defro_end = (today + datetime.timedelta(hours=6)).strftime("%Y-%m-%dT%H:%M+09:00")
+        hold_time = (today + datetime.timedelta(hours=36)).strftime("%Y-%m-%dT%H:%M+09:00")
+    if defro == 2:
+        pro_name = "매콤닭갈비 & 바베큐포크"
+        metho = "냉동"
+        hold_time = exp
+
 if code == 76:
     method = "냉장"
     crit = input("제조일?(예: 2021-05-05): ")
@@ -785,14 +1025,24 @@ if code == 82:
 
 # 노션 작동
 createURL = 'https://api.notion.com/v1/pages'
-if exp == None and defro_start == None:
-    newPageData = {
+if defro_start == None:
+    if hold_time == None:
+        newPageData = {
         "parent": {"database_id": id_database},
         "properties": {
             "상품명": {"title": [{"text": {"content": pro_name}}]},
             "보관법": {"select": {"name": method}}
+            }
         }
-    }
+    else:
+        newPageData = {
+            "parent": {"database_id": id_database},
+            "properties": {
+                "홀딩 타임": {"date": {"start": hold_time}},
+                "상품명": {"title": [{"text": {"content": pro_name}}]},
+                "보관법": {"select": {"name": method}}
+            }
+        }
 elif defro_start == None:
     newPageData = {
         "parent": {"database_id": id_database},
@@ -819,5 +1069,8 @@ else:
 data = json.dumps(newPageData)
 res = requests.request("POST", createURL, headers=headers, data=data)
 
-print(res.status_code)
+if res.status_code == 200:
+    print("기록 성공")
+else:
+    print("기록 실패...")
 print("결과:", pro_name, method, exp, open_date, defro_start, defro_end, hold_time)
