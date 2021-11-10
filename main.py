@@ -905,14 +905,34 @@ if code == 53:
     exp = (datetime.date(y, m, d) + relativedelta(months=6) - relativedelta(days=1)).strftime("%Y-%m-%d")
     defro = int(input("해동을 시작했는가(예는 1, 아니오는 2)?: "))
     if defro == 1:
-        pro_name = "매콤닭갈비 & 바베큐포크(해동)"
+        pro_name = "베이컨 에그데니쉬(해동)"
         method = "냉장"
         today = datetime.datetime.now()
         defro_start = today.strftime("%Y-%m-%dT%H:%M+09:00")
-        defro_end = (today + datetime.timedelta(hours=6)).strftime("%Y-%m-%dT%H:%M+09:00")
+        defro_end = (today + datetime.timedelta(hours=9)).strftime("%Y-%m-%dT%H:%M+09:00")
         hold_time = (today + datetime.timedelta(hours=36)).strftime("%Y-%m-%dT%H:%M+09:00")
     if defro == 2:
-        pro_name = "매콤닭갈비 & 바베큐포크"
+        pro_name = "베이컨 에그데니쉬"
+        metho = "냉동"
+        hold_time = exp
+
+if code == 54:
+    crit = input("제조일?(예: 2021-05-05): ")
+    crit_split = crit.split('-')
+    y = int(crit_split[0])
+    m = int(crit_split[1])
+    d = int(crit_split[2])
+    exp = (datetime.date(y, m, d) + relativedelta(months=6) - relativedelta(days=1)).strftime("%Y-%m-%d")
+    defro = int(input("해동을 시작했는가(예는 1, 아니오는 2)?: "))
+    if defro == 1:
+        pro_name = "스위트콘 에그데니쉬(해동)"
+        method = "냉장"
+        today = datetime.datetime.now()
+        defro_start = today.strftime("%Y-%m-%dT%H:%M+09:00")
+        defro_end = (today + datetime.timedelta(hours=9)).strftime("%Y-%m-%dT%H:%M+09:00")
+        hold_time = (today + datetime.timedelta(hours=36)).strftime("%Y-%m-%dT%H:%M+09:00")
+    if defro == 2:
+        pro_name = "스위트콘 에그데니쉬"
         metho = "냉동"
         hold_time = exp
 
@@ -1026,33 +1046,46 @@ if code == 82:
 # 노션 작동
 createURL = 'https://api.notion.com/v1/pages'
 if defro_start == None:
-    if hold_time == None:
-        newPageData = {
-        "parent": {"database_id": id_database},
-        "properties": {
-            "상품명": {"title": [{"text": {"content": pro_name}}]},
-            "보관법": {"select": {"name": method}}
-            }
-        }
-    else:
-        newPageData = {
+    if exp == None:
+        if hold_time == None:
+            newPageData = {
             "parent": {"database_id": id_database},
             "properties": {
-                "홀딩 타임": {"date": {"start": hold_time}},
                 "상품명": {"title": [{"text": {"content": pro_name}}]},
                 "보관법": {"select": {"name": method}}
+                }
             }
-        }
-elif defro_start == None:
-    newPageData = {
-        "parent": {"database_id": id_database},
-        "properties": {
-            "유통기한": {"date": {"start": exp}},
-            "홀딩 타임": {"date": {"start": hold_time}},
-            "상품명": {"title": [{"text": {"content": pro_name}}]},
-            "보관법": {"select": {"name": method}}
-        }
-    }
+        else:
+            newPageData = {
+                "parent": {"database_id": id_database},
+                "properties": {
+                    "상품명": {"title": [{"text": {"content": pro_name}}]},
+                    "보관법": {"select": {"name": method}},
+                    "홀딩 타임": {"date": {"start": hold_time}}
+                }
+            }
+    else:
+        if open_date == None:
+            newPageData = {
+                "parent": {"database_id": id_database},
+                "properties": {
+                    "유통기한": {"date": {"start": exp}},
+                    "홀딩 타임": {"date": {"start": hold_time}},
+                    "상품명": {"title": [{"text": {"content": pro_name}}]},
+                    "보관법": {"select": {"name": method}}
+                }
+            }
+        else:
+            newPageData = {
+                "parent": {"database_id": id_database},
+                "properties": {
+                    "유통기한": {"date": {"start": exp}},
+                    "개봉일": {"date": {"start": open_date}},
+                    "홀딩 타임": {"date": {"start": hold_time}},
+                    "상품명": {"title": [{"text": {"content": pro_name}}]},
+                    "보관법": {"select": {"name": method}}
+                }
+            }
 else:
     newPageData = {
         "parent": {"database_id": id_database},
