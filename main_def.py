@@ -1,6 +1,9 @@
 # 할리스 재고 관리 프로그램
 # 베이커리는 더 이상 해동시키지 않아도 되는 듯
 
+# 할리스 재고 관리 프로그램
+# 베이커리는 더 이상 해동시키지 않아도 되는 듯
+
 import requests, json
 import time
 import datetime
