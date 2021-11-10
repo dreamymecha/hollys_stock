@@ -263,6 +263,7 @@ class Cleaning():
             m = int(self.crit_split[1])
             d = int(self.crit_split[2])
             self.exp = (datetime.date(y, m, d) + relativedelta(years=2) - relativedelta(days=1)).strftime("%Y-%m-%d")
+            self.hold_time = self.exp
         
         if self.code == 14:
             self.method = "상온"
@@ -273,6 +274,7 @@ class Cleaning():
             m = int(self.crit_split[1])
             d = int(self.crit_split[2])
             self.exp = (datetime.date(y, m, d) + relativedelta(years=1) - relativedelta(days=1)).strftime("%Y-%m-%d")
+            self.hold_time = self.exp
         
         if self.code == 15:
             self.method = "냉동"
@@ -283,6 +285,7 @@ class Cleaning():
             m = int(self.crit_split[1])
             d = int(self.crit_split[2])
             self.exp = (datetime.date(y, m, d) + relativedelta(years=1) - relativedelta(days=1)).strftime("%Y-%m-%d")
+            self.hold_time = self.exp
         
         if self.code == 16:
             self.method = "냉동"
@@ -294,7 +297,8 @@ class Cleaning():
                 self.hold_time = (today + datetime.timedelta(days=5)).strftime("%Y-%m-%dT%H:%M+09:00")
             if div == 2:
                 self.pro_name = "요거트 아이스크림"
-        
+                self.hold_time = self.exp
+
         if self.code == 17:
             self.method = "실온"
             self.pro_name = "나뭇잎코인"
@@ -304,6 +308,7 @@ class Cleaning():
             m = int(self.crit_split[1])
             d = int(self.crit_split[2])
             self.exp = (datetime.date(y, m, d) + relativedelta(years=1) - relativedelta(days=1)).strftime("%Y-%m-%d")
+            self.hold_time = self.exp
         
         if self.code == 18:
             self.method = "실온"
@@ -314,6 +319,7 @@ class Cleaning():
             m = int(self.crit_split[1])
             d = int(self.crit_split[2])
             self.exp = (datetime.date(y, m, d) + relativedelta(years=1) - relativedelta(days=1)).strftime("%Y-%m-%d")
+            self.hold_time = self.exp
         
         if self.code == 19:
             self.method = "냉동"
@@ -324,6 +330,7 @@ class Cleaning():
             m = int(self.crit_split[1])
             d = int(self.crit_split[2])
             self.exp = (datetime.date(y, m, d) + relativedelta(months=6) - relativedelta(days=1)).strftime("%Y-%m-%d")
+            self.hold_time = self.exp
         
         if self.code == 20:
             self.method = "냉동"
@@ -334,6 +341,7 @@ class Cleaning():
             m = int(self.crit_split[1])
             d = int(self.crit_split[2])
             self.exp = (datetime.date(y, m, d) + relativedelta(months=6) - relativedelta(days=1)).strftime("%Y-%m-%d")
+            self.hold_time = self.exp
         
         if self.code == 21:
             self.method = "냉장"
@@ -362,6 +370,7 @@ class Cleaning():
             m = int(self.crit_split[1])
             d = int(self.crit_split[2])
             self.exp = (datetime.date(y, m, d) + relativedelta(years=2) - relativedelta(days=1)).strftime("%Y-%m-%d")
+            self.hold_time = self.exp
         
         if self.code == 23:
             self.method = "냉장"
@@ -450,6 +459,7 @@ class Cleaning():
             m = int(self.crit_split[1])
             d = int(self.crit_split[2])
             self.exp = (datetime.date(y, m, d) + relativedelta(years=2) - relativedelta(days=1)).strftime("%Y-%m-%d")
+            self.hold_time = self.exp
         
         if self.code == 28:
             self.method = "상온"
@@ -460,6 +470,7 @@ class Cleaning():
             m = int(self.crit_split[1])
             d = int(self.crit_split[2])
             self.exp = (datetime.date(y, m, d) + relativedelta(years=1) - relativedelta(days=1)).strftime("%Y-%m-%d")
+            self.hold_time = self.exp
         
         if self.code == 29:
             self.crit = input("제조일?(예: 2021-05-05): ")
@@ -758,7 +769,7 @@ class Cleaning():
                 self.hold_time = (today + datetime.timedelta(hours=36)).strftime("%Y-%m-%dT%H:%M+09:00")
             if defro == 2:
                 self.pro_name = "미트볼 칠리 치즈 샌드위치"
-                metho = "냉동"
+                self.method = "냉동"
                 self.hold_time = self.exp
         
         if self.code == 44:
@@ -778,7 +789,7 @@ class Cleaning():
                 self.hold_time = (today + datetime.timedelta(hours=48)).strftime("%Y-%m-%dT%H:%M+09:00")
             if defro == 2:
                 self.pro_name = "샌드위치 식빵"
-                metho = "냉동"
+                self.method = "냉동"
                 self.hold_time = self.exp
         
         if self.code == 45:
@@ -798,7 +809,7 @@ class Cleaning():
                 self.hold_time = (today + datetime.timedelta(hours=48)).strftime("%Y-%m-%dT%H:%M+09:00")
             if defro == 2:
                 self.pro_name = "오곡 식빵"
-                metho = "냉동"
+                self.method = "냉동"
                 self.hold_time = self.exp
         
         if self.code == 46:
@@ -878,7 +889,7 @@ class Cleaning():
                 self.hold_time = (today + datetime.timedelta(hours=36)).strftime("%Y-%m-%dT%H:%M+09:00")
             if defro == 2:
                 self.pro_name = "바삭불고기 & 트리플치즈치킨"
-                metho = "냉동"
+                self.method = "냉동"
                 self.hold_time = self.exp
         
         if self.code == 52:
@@ -898,7 +909,7 @@ class Cleaning():
                 self.hold_time = (today + datetime.timedelta(hours=36)).strftime("%Y-%m-%dT%H:%M+09:00")
             if defro == 2:
                 self.pro_name = "매콤닭갈비 & 바베큐포크"
-                metho = "냉동"
+                self.method = "냉동"
                 self.hold_time = self.exp
         
         if self.code == 53:
@@ -918,7 +929,7 @@ class Cleaning():
                 self.hold_time = (today + datetime.timedelta(hours=36)).strftime("%Y-%m-%dT%H:%M+09:00")
             if defro == 2:
                 self.pro_name = "베이컨 에그데니쉬"
-                metho = "냉동"
+                self.method = "냉동"
                 self.hold_time = self.exp
         
         if self.code == 54:
@@ -938,7 +949,7 @@ class Cleaning():
                 self.hold_time = (today + datetime.timedelta(hours=36)).strftime("%Y-%m-%dT%H:%M+09:00")
             if defro == 2:
                 self.pro_name = "스위트콘 에그데니쉬"
-                metho = "냉동"
+                self.method = "냉동"
                 self.hold_time = self.exp
         
         if self.code == 76:

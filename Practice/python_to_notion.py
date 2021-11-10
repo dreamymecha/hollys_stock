@@ -20,7 +20,7 @@ def readDatabase(id_database, headers):
     data = res.json()
     # print(res.status_code)
     # print(res.text)
-    with open('./db.json', 'w', encoding='utf8') as f:
+    with open('../db.json', 'w', encoding='utf8') as f:
         json.dump(data, f, ensure_ascii=False)
 
 def createDatabase(id_database, headers):
