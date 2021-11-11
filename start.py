@@ -8,6 +8,7 @@ BOT = main_func.Cleaning()
 def program(BOT, code):
     BOT.main(code)
     BOT.add_notion()
+    BOT.final_result()
 
 program(BOT, code)
 
