@@ -1119,6 +1119,7 @@ class Cleaning():
     def final_result(self):
         if self.res.status_code == 200:
             print("기록 성공")
+            print("결과:", self.pro_name, self.method, self.exp, self.open_date, self.defro_start, self.defro_end,
+                  self.hold_time)
         else:
             print("기록 실패...")
-        print("결과:", self.pro_name, self.method, self.exp, self.open_date, self.defro_start, self.defro_end, self.hold_time)
