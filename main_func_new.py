@@ -146,6 +146,26 @@ class Cleaning():
             self.dec_open = "개봉 안 함"
 
         if self.code == 7:
+            self.method = "냉동"
+            self.crit = input("유통기한?(예: 2021-05-05): ")
+            self.crit_split = self.crit.split('-')
+            y = int(self.crit_split[0])
+            m = int(self.crit_split[1])
+            d = int(self.crit_split[2])
+            self.exp = (datetime.date(y, m, d)).strftime("%Y-%m-%d")
+            open = int(input("개봉했는가(예는 1, 아니오는 2)?: "))
+            if open == 1:
+                self.pro_name = "토핑 체리(개봉)"
+                today = datetime.datetime.now()
+                self.dec_open = "개봉"
+                self.open_date = today.strftime("%Y-%m-%dT%H:%M+09:00")
+                self.hold_time = self.exp
+            if open == 2:
+                self.pro_name = "토핑 체리"
+                self.dec_open = "개봉 안 함"
+                self.hold_time = self.exp
+
+        if self.code == 8:
             self.method = "상온"
             self.crit = input("제조일?(예: 2021-05-05): ")
             self.crit_split = self.crit.split('-')
@@ -164,7 +184,7 @@ class Cleaning():
                 self.pro_name = "단팥"
                 self.hold_time = self.exp
         
-        if self.code == 8:
+        if self.code == 9:
             self.method = "상온"
             self.crit = input("제조일?(예: 2021-05-05): ")
             self.crit_split = self.crit.split('-')
@@ -188,7 +208,7 @@ class Cleaning():
                 self.pro_name = "19곡물파우더"
                 self.hold_time = self.exp
         
-        if self.code == 7:
+        if self.code == 9:
             self.crit = input("제조일?(예: 2021-05-05): ")
             self.crit_split = self.crit.split('-')
             y = int(self.crit_split[0])
